@@ -1,4 +1,4 @@
-package Entities;
+package com.gesconge.gesconge.Entities;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -29,13 +29,13 @@ public class Employee {
     TypeContrat typeContrat;
     @ManyToOne
     Role role;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "Createur")
+    @OneToMany(mappedBy = "Createur")
     Set<Conge> CongePris;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "Validateur")
+    @OneToMany(mappedBy = "Validateur")
     Set<Conge> CongeTraite;
     @ManyToOne
     Equipe equipe;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "Redacteur")
+    @OneToMany(mappedBy = "Redacteur")
     Set<Commentaire>ListCommentaire;
 
 
