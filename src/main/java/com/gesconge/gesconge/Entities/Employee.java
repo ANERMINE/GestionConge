@@ -19,6 +19,8 @@ public class Employee {
     long Id_Emp ;
     String nom;
     String prenom;
+    String MotDePasse;
+    int Score;
     @Temporal(TemporalType.DATE)
     Date dateNaissance;
     @Temporal(TemporalType.DATE)
