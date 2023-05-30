@@ -1,4 +1,4 @@
-package Repository;
+package com.gesconge.gesconge.Repositories;
 
 
 import com.gesconge.gesconge.Entities.Post;
