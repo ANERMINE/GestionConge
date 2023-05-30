@@ -1,7 +1,8 @@
 package Services;
 
 
-import Entities.Post;
+
+import com.gesconge.gesconge.Entities.Post;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package Services;
 
-import Entities.Post;
+
 import Repository.PostRepo;
+import com.gesconge.gesconge.Entities.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
