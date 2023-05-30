@@ -1,4 +1,4 @@
-package Entities;
+package com.gesconge.gesconge.Entities;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;

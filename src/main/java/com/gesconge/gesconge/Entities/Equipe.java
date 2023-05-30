@@ -1,4 +1,4 @@
-package Entities;
+package com.gesconge.gesconge.Entities;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -12,12 +12,14 @@ import java.util.Set;
 @Entity
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class Role {
+public class Equipe {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    long Id_Role;
-    String Libelle;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "role")
+    long Id_Equipe;
+    String codeEquipe;
+    @OneToMany(mappedBy = "equipe")
     Set<Employee> ListEmployee;
+    @OneToMany(mappedBy = "equipe")
+    Set<Evenement>ListEvenements;
 
 }

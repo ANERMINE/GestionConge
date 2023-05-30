@@ -1,4 +1,4 @@
-package Entities;
+package com.gesconge.gesconge.Entities;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
