@@ -1,7 +1,8 @@
 package Controller;
 
-import Entities.Post;
+
 import Services.IPostService;
+import com.gesconge.gesconge.Entities.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

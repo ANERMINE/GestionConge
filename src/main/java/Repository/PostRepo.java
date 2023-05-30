@@ -1,6 +1,7 @@
 package Repository;
 
-import Entities.Post;
+
+import com.gesconge.gesconge.Entities.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
