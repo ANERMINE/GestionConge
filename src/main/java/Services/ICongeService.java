@@ -1,7 +1,7 @@
-package Service;
+package Services;
 
 
-import Entities.Conge;
+import com.gesconge.gesconge.Entities.Conge;
 
 import java.util.List;
 
