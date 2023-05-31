@@ -1,7 +1,7 @@
 package Services;
 
 
-import com.gesconge.gesconge.Repositories.PostRepo;
+import com.gesconge.gesconge.Repositories.IPostRepo;
 import com.gesconge.gesconge.Entities.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PostService implements IPostService {
 
-    private PostRepo postREPO;
+    private IPostRepo postREPO;
     @Override
     public List<Post> retrieveAllPosts() {
         return postREPO.findAll();
