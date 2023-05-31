@@ -1,15 +1,16 @@
 package Services;
 
 import com.gesconge.gesconge.Entities.Employee;
+import com.gesconge.gesconge.Repositories.IEmployee;
 
 import java.util.List;
 
 public class EmployeeService implements IEmployeeService{
 
-
+private IEmployee empRepo;
     @Override
     public Employee addEmployee(Employee emp) {
-        return null;
+        return empRepo.save(emp);
     }
 
     @Override
@@ -30,6 +31,11 @@ public class EmployeeService implements IEmployeeService{
     @Override
     public List<Employee> getAlEmployee() {
         return null;
+    }
+
+    @Override
+    public int addEmployeeToEquipe(long id, long idEquipe) {
+        return 0;
     }
 
 }
