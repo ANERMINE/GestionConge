@@ -1,6 +1,7 @@
 package Services;
 
 import com.gesconge.gesconge.Entities.Commentaire;
+import com.gesconge.gesconge.Entities.Post;
 import com.gesconge.gesconge.Repositories.ICommentaireRepo;
 import com.gesconge.gesconge.Repositories.IPostRepo;
 import lombok.AllArgsConstructor;
@@ -36,5 +37,10 @@ public class CommentaireService implements ICmmentaireService{
     @Override
     public void deleteCommentaire(Long id) {
           commentaireRepoREPO.deleteById(id);
+    }
+
+    @Override
+    public Commentaire addCommentaireParPost(Commentaire C, Post P) {
+        return null;
     }
 }
