@@ -31,6 +31,12 @@ public class CommentaireController {
     Commentaire addCommentaire(Commentaire C){
         return commentservice.addCommentaire(C);
     }
+    @PostMapping("/addCommentByPost")
+    @ResponseBody
+    public Commentaire addCommentaireParPost(Commentaire C, Post P) {
+        return commentservice.addCommentaireParPost(C,P);
+    }
+
     @DeleteMapping("/delete/{id-Comment}")
     @ResponseBody
     public void deleteCommentaire(Long id) {
