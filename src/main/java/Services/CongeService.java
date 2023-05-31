@@ -28,7 +28,7 @@ public class CongeService implements ICongeService{
     @Override
     public Conge retreiveConge(Long Id_Conge) {
 
-        return congeRespository.getReferenceById(Id_Conge);
+        return congeRespository.findById(Id_Conge).get();
     }
 
     @Override
