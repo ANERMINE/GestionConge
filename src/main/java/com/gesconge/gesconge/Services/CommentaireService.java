@@ -1,9 +1,8 @@
-package Services;
+package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Commentaire;
 import com.gesconge.gesconge.Entities.Post;
 import com.gesconge.gesconge.Repositories.ICommentaireRepo;
-import com.gesconge.gesconge.Repositories.IPostRepo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

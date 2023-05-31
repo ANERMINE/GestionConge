@@ -1,6 +1,6 @@
-package Controller;
+package com.gesconge.gesconge.Controller;
 
-import Services.IEquipeService;
+import com.gesconge.gesconge.Services.IEquipeService;
 import com.gesconge.gesconge.Entities.Equipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

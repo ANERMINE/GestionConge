@@ -1,9 +1,8 @@
-package Services;
+package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Conge;
 import com.gesconge.gesconge.Repositories.IConge;
 
-import com.gesconge.gesconge.Repositories.IConge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

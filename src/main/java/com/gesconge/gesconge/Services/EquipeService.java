@@ -1,4 +1,4 @@
-package Services;
+package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Equipe;
 import com.gesconge.gesconge.Repositories.IEquipe;
