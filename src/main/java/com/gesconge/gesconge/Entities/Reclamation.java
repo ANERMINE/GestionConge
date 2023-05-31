@@ -15,13 +15,13 @@ public class Reclamation {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     Long idReclamation;
-    Type type;
+    @Enumerated(EnumType.STRING)
+    TypeReclamation type;
     @Temporal(TemporalType.DATE)
     Date dateCreation;
+    @Enumerated(EnumType.STRING)
     EtatReclamation etat;
 
-    enum Type{DeclarationDeProbleme,Feedback,DemandeSoldeConge}
-enum EtatReclamation{Traitee, NonTraitee}
 
     @ManyToOne
     Employee employee;
