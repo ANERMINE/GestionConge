@@ -39,7 +39,8 @@ public class Employee {
     Equipe equipe;
     @OneToMany(mappedBy = "Redacteur")
     Set<Commentaire>ListCommentaire;
-
+    @OneToMany(mappedBy = "employee")
+    private Set<Reclamation>reclamations;
 
 
 
