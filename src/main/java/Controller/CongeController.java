@@ -1,7 +1,7 @@
 package Controller;
 
-import Entities.Conge;
 import Service.ICongeService;
+import com.gesconge.gesconge.Entities.Conge;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
