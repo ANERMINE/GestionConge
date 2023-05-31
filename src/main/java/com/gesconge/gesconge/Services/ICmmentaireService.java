@@ -1,4 +1,4 @@
-package Services;
+package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Commentaire;
 import com.gesconge.gesconge.Entities.Post;

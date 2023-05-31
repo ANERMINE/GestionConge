@@ -1,4 +1,4 @@
-package Services;
+package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Evenement;
 import com.gesconge.gesconge.Repositories.IEvenement;
