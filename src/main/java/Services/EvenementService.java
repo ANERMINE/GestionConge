@@ -1,31 +1,30 @@
 package Services;
 
 import com.gesconge.gesconge.Entities.Evenement;
-import com.gesconge.gesconge.Entities.Post;
 import com.gesconge.gesconge.Repositories.IEvenement;
-import com.gesconge.gesconge.Repositories.PostRepo;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Setter
-@Getter
+
 @Service
-@AllArgsConstructor
-public class EvenementService {
+public class EvenementService implements IEvenementService{
+    @Autowired
     private IEvenement Ievent;
+    @Override
     public List<Evenement> retrieveAllEvents() {
         return Ievent.findAll();
     }
+    @Override
     public Evenement retrieveEvent(Long id) {
 
         return Ievent.findById(id).get();
     }
+    @Override
     public Evenement addEvent(Evenement e) {
         return Ievent.save(e);
     }
+    @Override
     public Evenement updateEvent(Evenement e) {
         return Ievent.save(e);
     }

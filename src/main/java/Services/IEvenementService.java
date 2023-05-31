@@ -1,8 +1,6 @@
 package Services;
 
 import com.gesconge.gesconge.Entities.Evenement;
-import com.gesconge.gesconge.Entities.Post;
-
 import java.util.List;
 
 public interface IEvenementService {
