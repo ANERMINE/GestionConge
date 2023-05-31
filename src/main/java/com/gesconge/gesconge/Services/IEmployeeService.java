@@ -10,6 +10,8 @@ public interface IEmployeeService {
     void deleteEmployee(Employee emp);
     Employee getEmployeeById(long idemp);
     List<Employee>getAlEmployee();
+    int addEmployeeToEquipe(long id,long idEquipe);
+
 
 
 
