@@ -1,8 +1,7 @@
-package Controller;
+package com.gesconge.gesconge.Controller;
 
-import Services.ICmmentaireService;
+import com.gesconge.gesconge.Services.ICmmentaireService;
 import com.gesconge.gesconge.Entities.Commentaire;
-import com.gesconge.gesconge.Entities.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
