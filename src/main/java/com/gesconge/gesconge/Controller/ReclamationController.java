@@ -4,7 +4,9 @@ import com.gesconge.gesconge.Services.IReclamationService;
 import com.gesconge.gesconge.Entities.Reclamation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -27,15 +29,14 @@ public class ReclamationController {
 
     @PostMapping("/addRec")
     @ResponseBody
-    public Reclamation addReclamation(@RequestBody Reclamation r) {
-        return ReclamationService.addReclamation(r);
+    public Reclamation addReclamation(@RequestBody Reclamation r, @RequestParam("file") MultipartFile file) throws IOException {
+        return ReclamationService.addReclamation(r,file);
     }
 
     @PutMapping("/update/{id}")
     @ResponseBody
-    public Reclamation updateReclamation(@PathVariable("id") Long id , @RequestBody Reclamation r) {
-        Reclamation reclamation=ReclamationService.updateReclamation(r.getIdReclamation());
-        return reclamation;
+    public Reclamation updateReclamation(Reclamation updatedRec) {
+        return ReclamationService.updateReclamation(updatedRec);
     }
 
     @DeleteMapping("/delete/{id}")

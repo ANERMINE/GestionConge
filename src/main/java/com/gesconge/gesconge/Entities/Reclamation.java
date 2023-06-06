@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 @Getter
-
 @Setter
 @AllArgsConstructor
 @Entity
@@ -23,6 +22,16 @@ public class Reclamation implements Serializable {
     Date dateCreation;
     @Enumerated(EnumType.STRING)
     EtatReclamation etat;
+    String pieceJointe;
+    private float nbJours;
+
+    public float getnbJours() {
+        return nbJours;
+    }
+
+    public void setnbJours(float nbJours) {
+        this.nbJours = nbJours;
+    }
 
 
     @ManyToOne
