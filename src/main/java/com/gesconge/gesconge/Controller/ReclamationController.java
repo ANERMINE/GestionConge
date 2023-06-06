@@ -27,19 +27,20 @@ public class ReclamationController {
 
     @PostMapping("/addRec")
     @ResponseBody
-    public Reclamation addReclamation(Reclamation r) {
+    public Reclamation addReclamation(@RequestBody Reclamation r) {
         return ReclamationService.addReclamation(r);
     }
 
-    @PutMapping("/update/Reclamation")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public Reclamation updateReclamation(Reclamation r) {
-        return ReclamationService.updateReclamation(r);
+    public Reclamation updateReclamation(@PathVariable("id") Long id , @RequestBody Reclamation r) {
+        Reclamation reclamation=ReclamationService.updateReclamation(r.getIdReclamation());
+        return reclamation;
     }
 
     @DeleteMapping("/delete/{id}")
     @ResponseBody
-    public void deleteReclamation(Long id) {
+    public void deleteReclamation(@PathVariable("id") Long id) {
         ReclamationService.deleteReclamation(id);
     }
 

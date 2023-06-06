@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 @Entity
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class Employee {
+public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long Id_Emp ;
