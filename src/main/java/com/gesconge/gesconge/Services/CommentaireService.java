@@ -40,6 +40,7 @@ public class CommentaireService implements ICmmentaireService{
 
     @Override
     public Commentaire addCommentaireParPost(Commentaire C, Post P) {
-        return null;
+       C.setPost(P);
+       return  commentaireRepoREPO.save(C);
     }
 }

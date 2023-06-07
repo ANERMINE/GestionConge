@@ -1,5 +1,6 @@
 package com.gesconge.gesconge.Controller;
 
+import com.gesconge.gesconge.Entities.Post;
 import com.gesconge.gesconge.Services.ICmmentaireService;
 import com.gesconge.gesconge.Entities.Commentaire;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,15 +31,15 @@ public class CommentaireController {
     Commentaire addCommentaire(Commentaire C){
         return commentservice.addCommentaire(C);
     }
-    @PostMapping("/addCommentByPost")
+    @PostMapping("/addCommentByPost/{id-Post}")
     @ResponseBody
-    public Commentaire addCommentaireParPost(Commentaire C, Post P) {
+    public Commentaire addCommentaireParPost(Commentaire C, @PathVariable ("id-Post") Post P) {
         return commentservice.addCommentaireParPost(C,P);
     }
 
     @DeleteMapping("/delete/{id-Comment}")
     @ResponseBody
-    public void deleteCommentaire(Long id) {
+    public void deleteCommentaire(@PathVariable ("id-Comment") Long id) {
         commentservice.deleteCommentaire(id);
     }
 
