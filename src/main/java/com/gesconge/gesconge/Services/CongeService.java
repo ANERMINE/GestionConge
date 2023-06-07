@@ -35,4 +35,9 @@ public class CongeService implements ICongeService{
 
         return congeRespository.save(c);
     }
+    @Override
+    public void affecterConge(int nbJrs,int IdEquipe)
+    {
+
+    }
 }

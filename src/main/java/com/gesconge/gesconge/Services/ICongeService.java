@@ -13,4 +13,5 @@ public interface ICongeService {
     public Conge retreiveConge(Long Id_Conge);
 
     public Conge updateConge(Conge c);
+    public void affecterConge(int nbJrs,int IdEquipe);
 }
