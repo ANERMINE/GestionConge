@@ -1,5 +1,7 @@
 package com.gesconge.gesconge.Controller;
 
+import com.gesconge.gesconge.Entities.Equipe;
+import com.gesconge.gesconge.Services.EvenementService;
 import com.gesconge.gesconge.Services.IEvenementService;
 import com.gesconge.gesconge.Entities.Evenement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/Event")
-
 public class EvenementController {
     @Autowired
     private IEvenementService eventservice;
@@ -27,13 +28,13 @@ public class EvenementController {
 
     @PostMapping("/addEvent")
     @ResponseBody
-    public Evenement addEvent(Evenement e) {
+    public Evenement addEvent(@RequestBody Evenement e) {
         return eventservice.addEvent(e);
     }
 
     @PutMapping("/update/Event")
     @ResponseBody
-    public Evenement updateEvent(Evenement e) {
+    public Evenement updateEvent(@RequestBody Evenement e) {
         return eventservice.updateEvent(e);
     }
 
@@ -41,5 +42,11 @@ public class EvenementController {
     @ResponseBody
     public void deleteEvent(Long id) {
         eventservice.deleteEvent(id);
+    }
+    @PostMapping("/addeveentToequipe/{idEquipe}")
+    @ResponseBody
+    public Evenement addeventtoequipe(@RequestBody Evenement evenement, @PathVariable Long idEquipe) {
+        return eventservice.addeventtoequipe(evenement,idEquipe);
+
     }
 }
