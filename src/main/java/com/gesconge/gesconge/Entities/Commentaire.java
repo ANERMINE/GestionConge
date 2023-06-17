@@ -14,15 +14,16 @@ import java.util.Date;
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
 public class Commentaire implements Serializable {
-    @EmbeddedId
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     CleComposite id_Comment;
     String contenu;
     @Temporal(TemporalType.DATE)
     Date datePublication;
-    @ManyToOne
-    Employee Redacteur;
-    @ManyToOne
-    Post post;
+   // @ManyToOne
+   // Employee Redacteur;
+    //@ManyToOne
+   // Post post;
 
 
 
