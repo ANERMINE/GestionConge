@@ -26,8 +26,11 @@ public class Conge {
     @Enumerated(EnumType.STRING)
     NatureConge Nature;
     @ManyToOne
+
     Employee Createur;
+
     @ManyToOne
+    //@JoinColumn(name = "Id_Valideur")
     Employee Validateur;
 
 

@@ -10,4 +10,5 @@ public interface IEquipeService {
     Equipe addEquipe(Equipe e);
     Equipe updateEquipe(Equipe e);
     void deleteEquipe(Long id);
+    Equipe findEquipeByCode(String codeEq);
 }

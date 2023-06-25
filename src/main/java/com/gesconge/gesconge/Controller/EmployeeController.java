@@ -35,7 +35,7 @@ private IEmployeeService employeeService;
     }
     @GetMapping("/All")
     public List<Employee> getAlEmployee() {
-        return employeeService.getAlEmployee();
+        return employeeService.getAllEmployee();
     }
     @PostMapping("AffecterEquipe/idemp/idEquipe")
     public int addEmployeeToEquipe(@PathVariable("idemp")long idem,@PathVariable("idequipe") long idEquipe) {

@@ -33,4 +33,9 @@ public class EquipeService implements IEquipeService{
     public void deleteEquipe(Long id) {
         equipeREPO.deleteById(id);
     }
+
+    @Override
+    public Equipe findEquipeByCode(String codeEquipe) {
+        return equipeREPO.findEquipeByCode(codeEquipe);
+    }
 }

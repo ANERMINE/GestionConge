@@ -6,21 +6,26 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.util.Date;
 
-@Getter
+
 @Setter
+@Getter
 @AllArgsConstructor
 @Entity
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
 public class Commentaire {
-    @EmbeddedId
-    CleComposite id_Comment;
+    //@EmbeddedId
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    long id_Comment;
     String contenu;
     @Temporal(TemporalType.DATE)
     Date datePublication;
     @ManyToOne
+    @JoinColumn(name="id_Emp",referencedColumnName = "Id_Emp",insertable = false,updatable = false)
     Employee Redacteur;
     @ManyToOne
+    @JoinColumn(name="Id_post",referencedColumnName = "Id_post",insertable = false,updatable = false)
     Post post;
 
 

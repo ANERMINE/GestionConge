@@ -17,6 +17,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long Id_Emp ;
+    String persoId;
     String nom;
     String prenom;
     String MotDePasse;
@@ -37,10 +38,14 @@ public class Employee {
     Set<Conge> CongeTraite;
     @ManyToOne
     Equipe equipe;
-    @OneToMany(mappedBy = "Redacteur")
+    @OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.ALL,mappedBy = "Redacteur")
     Set<Commentaire>ListCommentaire;
     @OneToMany(mappedBy = "employee")
     private Set<Reclamation>reclamations;
+    @ManyToOne
+    @JoinColumn(name = "responsable_id")
+    private Employee responsable;
+
 
 
 
