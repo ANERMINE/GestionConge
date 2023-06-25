@@ -30,19 +30,19 @@ public class PostController {
 
     @PostMapping("/addPost")
     @ResponseBody
-    public Post addPost(Post p) {
+    public Post addPost(@RequestBody  Post p) {
         return postService.addPost(p);
     }
 
-    @PutMapping("/update/Post")
+    @PutMapping("/update/{id-Post}")
     @ResponseBody
-    public Post updatePost(Post P) {
+    public Post updatePost(@RequestBody @PathVariable("id-Post") Post P) {
         return postService.updatePost(P);
     }
 
     @DeleteMapping("/delete/{id-Post}")
     @ResponseBody
-    public void deletePost(Long id) {
+    public void deletePost(@PathVariable("id-Post") Long id) {
         postService.deletePost(id);
     }
 

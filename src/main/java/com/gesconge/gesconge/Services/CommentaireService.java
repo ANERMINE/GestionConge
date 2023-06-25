@@ -3,26 +3,33 @@ package com.gesconge.gesconge.Services;
 import com.gesconge.gesconge.Entities.Commentaire;
 import com.gesconge.gesconge.Entities.Post;
 import com.gesconge.gesconge.Repositories.ICommentaireRepo;
+import com.gesconge.gesconge.Repositories.IPostRepo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Setter
+import java.util.Optional;
+
+/*@Setter
 @Getter
 @Service
-@AllArgsConstructor
+@AllArgsConstructor*/
 
-public class CommentaireService implements ICmmentaireService{
+public class CommentaireService /*implements ICmmentaireService*/{
+   /* @Autowired
+     ICommentaireRepo commentaireRepoREPO;
+    @Autowired
+    IPostRepo postRepo;
 
-    private ICommentaireRepo commentaireRepoREPO;
-    @Override
+    /*@Override
     public List<Commentaire> retrieveAllcommentaires() {
         return commentaireRepoREPO.findAll();
-    }
+    }*/
 
-    @Override
+   /* @Override
     public Commentaire retrieveCommentaire(Long id) {
         return commentaireRepoREPO.findById(id).get();
     }
@@ -36,10 +43,28 @@ public class CommentaireService implements ICmmentaireService{
     @Override
     public void deleteCommentaire(Long id) {
           commentaireRepoREPO.deleteById(id);
-    }
+    }/*
 
-    @Override
-    public Commentaire addCommentaireParPost(Commentaire C, Post P) {
-        return null;
-    }
+   /* @Override
+    public Commentaire addCommentaireParPost(Commentaire C, long Id_post) {
+        // Trouver le post correspondant à l'ID fourni
+        Optional<Post> optionalPost = postRepo.findById(Id_post);
+        if (optionalPost.isPresent()) {
+            Post post = optionalPost.get();
+
+            // Associer le commentaire au post
+         //   C.setPost(post);
+
+            // Ajouter le commentaire à la liste des commentaires du post
+            post.getListCommentaire().add(C);
+
+            // Enregistrer le post mis à jour avec le nouveau commentaire
+            postRepo.save(post);
+
+            // Retourner le commentaire ajouté
+            return C;
+        } else {
+            throw new IllegalArgumentException("Post not found with ID: " + Id_post);
+        }
+    }*/
 }

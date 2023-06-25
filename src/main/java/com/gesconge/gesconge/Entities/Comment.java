@@ -7,7 +7,6 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -15,15 +14,23 @@ import java.util.Set;
 @Entity
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class Post implements Serializable {
+
+public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Long Id_post;
-    String description;
+    Long IdComment;
+    String contenu;
     @Temporal(TemporalType.DATE)
     Date datePublication;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "post")
+    @ManyToOne
     @JsonIgnore
-    Set<Comment> listCommentaire;
+    Employee employee;
+    @ManyToOne
+    @JsonIgnore
+    Post post;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
 
 }
