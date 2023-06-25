@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -41,6 +42,14 @@ public class Employee {
     Set<Commentaire>ListCommentaire;
     @OneToMany(mappedBy = "employee")
     private Set<Reclamation>reclamations;
+    @OneToMany(mappedBy = "salarie")
+    private List<Score> score_données;
+    @OneToMany(mappedBy = "salarie")
+    private List<Score> score_posedées;
+    @OneToMany(mappedBy = "salarie")
+    private List<Pointage> pointages;
+
+
 
 
 
