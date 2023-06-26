@@ -20,6 +20,7 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long Id_Emp ;
+    String username;
     String nom;
     String prenom;
     String MotDePasse;
@@ -40,6 +41,11 @@ public class Employee implements Serializable {
     Set<Conge> CongeTraite;
     @ManyToOne
     Equipe equipe;
+    @ManyToOne
+    private Employee responsable;
+
+    @OneToMany(mappedBy = "responsable")
+    private List<Employee> employeesSupervises;
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     Set<Comment> listCommentaires;
