@@ -2,12 +2,13 @@ package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Equipe;
 import com.gesconge.gesconge.Repositories.IEquipe;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class EquipeService implements IEquipeService{
-
+@Autowired
     private IEquipe equipeREPO;
     @Override
     public List<Equipe> retrieveAllEquipes() {

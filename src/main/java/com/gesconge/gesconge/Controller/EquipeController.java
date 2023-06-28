@@ -28,13 +28,13 @@ public class EquipeController {
 
     @PostMapping("/addEquipe")
     @ResponseBody
-    public Equipe addEquipe(Equipe e) {
+    public Equipe addEquipe(@RequestBody Equipe e) {
         return equipeService.addEquipe(e);
     }
 
     @PutMapping("/update/Equipe")
     @ResponseBody
-    public Equipe updateEquipe(Equipe e) {
+    public Equipe updateEquipe(@RequestBody Equipe e) {
         return equipeService.updateEquipe(e);
     }
 
