@@ -43,4 +43,10 @@ public class EquipeController {
     public void deleteEquipe(Long id) {
         equipeService.deleteEquipe(id);
     }
+    @GetMapping("/EquipeByCode/{code}")
+    @ResponseBody
+    public long GetIdEquipe(@PathVariable("code") String code) {
+        return equipeService.GetIdEquipe(code) ;
+
+    }
 }

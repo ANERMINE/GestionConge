@@ -46,6 +46,7 @@ public class Employee implements Serializable {
     Equipe equipe;
 
     @ManyToOne
+    @JoinColumn(name = "responsable_id")
     private Employee responsable;
     @JsonIgnore
     @OneToMany(mappedBy = "responsable")

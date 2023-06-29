@@ -13,7 +13,7 @@ public class EmployeeController {
     @Autowired
     private IEmployeeService employeeService;
     @PostMapping("/AjouterEmployee")
-    public Employee addEmployee(Employee emp) {
+    public Employee addEmployee(@RequestBody Employee emp) {
 
         return employeeService.addEmployee(emp);
     }
