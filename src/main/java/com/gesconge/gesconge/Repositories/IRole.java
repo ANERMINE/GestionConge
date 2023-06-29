@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface IRole extends JpaRepository<Role,Long> {
 
-    @Query(value="select id_role from role where libelle like libelle",nativeQuery=true)
+    @Query(value="select id_role from role where libelle like ?1",nativeQuery=true)
     long GetIdRole(@Param("libelle") String libelle);
 }

@@ -2,8 +2,10 @@ package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Employee;
 import com.gesconge.gesconge.Entities.Equipe;
+import com.gesconge.gesconge.Entities.Role;
 import com.gesconge.gesconge.Repositories.IEmployee;
 import com.gesconge.gesconge.Repositories.IEquipe;
+import com.gesconge.gesconge.Repositories.IRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,21 +16,38 @@ public class EmployeeService implements IEmployeeService{
 private IEmployee empRepo;
 @Autowired
 private IEquipe equipeRepo;
+@Autowired
+private IRole roleRepo;
     @Override
     public Employee addEmployee(Employee emp) {
-
+        Equipe eq=new Equipe();
         long Ideq=equipeRepo.GetIdEquipe(emp.getEquipe().getCodeEquipe());
-        Equipe eq=equipeRepo.findById(Ideq).get();
+
+        eq=equipeRepo.findById(Ideq).get();
         emp.setEquipe(eq);
         eq.getListEmployee().add(emp);
-        if(emp.getRole().equals("Rh")==false)
-        {
-            Employee resp=new Employee();
-            resp=empRepo.findById(GetIdEmp(emp.getResponsable().getUsername())).get();
-            resp.getEmployeesSupervises().add(emp);
-            emp.setResponsable(resp);
 
-        }
+
+
+
+        //Affectation role
+        Role role=new Role();
+        role=roleRepo.findById(roleRepo.GetIdRole(emp.getRole().getLibelle())).get();
+        //Employee resp=new Employee();
+       // resp=empRepo.findById(GetIdEmp(emp.getResponsable().getUsername())).get();
+
+
+            //Affectaion Responsable
+            if(emp.getRole().equals("Rh")==false)
+            {
+                Employee resp=new Employee();
+                resp=empRepo.findById(GetIdEmp(emp.getResponsable().getUsername())).get();
+                resp.getEmployeesSupervises().add(emp);
+                emp.setResponsable(resp);
+
+            }
+
+
 
         return empRepo.save(emp);
     }

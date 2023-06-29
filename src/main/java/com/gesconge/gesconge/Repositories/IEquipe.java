@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Date;
 
 public interface IEquipe extends JpaRepository<Equipe, Long> {
-    @Query(value="select id_equipe from equipe where code_equipe like libelle",nativeQuery=true)
+    @Query(value="select id_equipe from equipe where code_equipe like ?1",nativeQuery=true)
     long GetIdEquipe(@Param("libelle") String libelle);
 }
