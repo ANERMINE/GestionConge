@@ -6,7 +6,7 @@ import com.gesconge.gesconge.Entities.Conge;
 import java.util.List;
 
 public interface ICongeService {
-    public Conge addConge(Conge c);
+    public Conge addDemandeConge(Conge c,long IdEmp);
 
     public List<Conge> retreiveAllConges();
 

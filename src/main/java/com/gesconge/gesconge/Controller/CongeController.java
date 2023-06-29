@@ -17,10 +17,10 @@ public class CongeController {
     @Autowired
     public ICongeService iCongeService;
 
-    @PostMapping("/add")
+    @PostMapping("/add/{idemp}")
     @ResponseBody
-    public Conge addConge(Conge c) {
-        return iCongeService.addConge(c);
+    public Conge addDemandeConge(@RequestBody Conge c,@PathVariable("idemp") long IdEmp) {
+        return iCongeService.addDemandeConge(c,IdEmp);
     }
 
 

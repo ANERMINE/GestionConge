@@ -25,6 +25,7 @@ public class Employee implements Serializable {
     String prenom;
     String MotDePasse;
     int Score;
+    float solde;
     @Temporal(TemporalType.DATE)
     Date dateNaissance;
     @Temporal(TemporalType.DATE)
@@ -35,20 +36,24 @@ public class Employee implements Serializable {
     TypeContrat typeContrat;
     @ManyToOne
     Role role;
+    @JsonIgnore
     @OneToMany(mappedBy = "Createur")
     Set<Conge> CongePris;
+    @JsonIgnore
     @OneToMany(mappedBy = "Validateur")
     Set<Conge> CongeTraite;
     @ManyToOne
     Equipe equipe;
     @ManyToOne
     private Employee responsable;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "responsable")
     private List<Employee> employeesSupervises;
+
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     Set<Comment> listCommentaires;
+
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     private Set<Reclamation>reclamations;

@@ -16,7 +16,7 @@ public class Conge {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long Id_Conge;
-    float solde;
+
     @Temporal(TemporalType.DATE)
     Date dateDebut;
     @Temporal(TemporalType.DATE)
