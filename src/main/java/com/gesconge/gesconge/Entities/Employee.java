@@ -44,6 +44,7 @@ public class Employee implements Serializable {
     Set<Conge> CongeTraite;
     @ManyToOne
     Equipe equipe;
+
     @ManyToOne
     private Employee responsable;
     @JsonIgnore
@@ -57,10 +58,13 @@ public class Employee implements Serializable {
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     private Set<Reclamation>reclamations;
+    @JsonIgnore
     @OneToMany(mappedBy = "salarie")
-    private List<Score> score_données;
+    private List<Score> score_donnees;
+    @JsonIgnore
     @OneToMany(mappedBy = "salarie")
-    private List<Score> score_posedées;
+    private List<Score> score_posedees;
+    @JsonIgnore
     @OneToMany(mappedBy = "salarie")
     private List<Pointage> pointages;
 

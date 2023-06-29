@@ -1,5 +1,6 @@
 package com.gesconge.gesconge.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -17,6 +18,7 @@ public class Role {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long Id_Role;
     String Libelle;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "role")
     Set<Employee> ListEmployee;
 

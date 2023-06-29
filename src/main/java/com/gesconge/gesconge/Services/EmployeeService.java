@@ -17,6 +17,19 @@ private IEquipe equipeRepo;
     @Override
     public Employee addEmployee(Employee emp) {
 
+        long Ideq=equipeRepo.GetIdEquipe(emp.getEquipe().getCodeEquipe());
+        Equipe eq=equipeRepo.findById(Ideq).get();
+        emp.setEquipe(eq);
+        eq.getListEmployee().add(emp);
+        if(emp.getRole().equals("Rh")==false)
+        {
+            Employee resp=new Employee();
+            resp=empRepo.findById(GetIdEmp(emp.getResponsable().getUsername())).get();
+            resp.getEmployeesSupervises().add(emp);
+            emp.setResponsable(resp);
+
+        }
+
         return empRepo.save(emp);
     }
 
@@ -50,5 +63,10 @@ private IEquipe equipeRepo;
     emp.setEquipe(eq);
     eq.getListEmployee().add(emp);
     }
+    public long GetIdEmp(String username)
+    {
+        return empRepo.GetIdEmp(username);
+    }
+
 
 }

@@ -11,6 +11,7 @@ public interface IEmployeeService {
     Employee getEmployeeById(long idemp);
     List<Employee>getAllEmployee();
     void addEmployeeToEquipe(long id,String LibelleEquipe);
+    long GetIdEmp(String username);
 
 
 
