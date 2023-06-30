@@ -1,5 +1,6 @@
 package com.gesconge.gesconge.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -25,8 +26,10 @@ public class Conge {
     EtatConge Etat;
     @Enumerated(EnumType.STRING)
     NatureConge Nature;
+    @JsonIgnore
     @ManyToOne
     Employee Createur;
+    @JsonIgnore
     @ManyToOne
     Employee Validateur;
 

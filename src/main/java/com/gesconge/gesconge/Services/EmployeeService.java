@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class EmployeeService implements IEmployeeService{
 @Autowired
@@ -115,6 +116,12 @@ private IRole roleRepo;
 
       return empRepo.save(emp);
     }
+
+  @Override
+  public List<Employee> GetListeEmployeeByResp(long idEmp) {
+   Employee emp= empRepo.findById(idEmp).get();
+    return emp.getEmployeesSupervises();
+  }
 
 
 }
