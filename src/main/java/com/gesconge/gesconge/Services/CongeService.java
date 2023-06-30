@@ -2,6 +2,7 @@ package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Conge;
 import com.gesconge.gesconge.Entities.Employee;
+import com.gesconge.gesconge.Entities.EtatConge;
 import com.gesconge.gesconge.Repositories.IConge;
 
 import com.gesconge.gesconge.Repositories.IEmployee;
@@ -53,6 +54,7 @@ public class CongeService implements ICongeService{
         Validateur=Createur.getResponsable();
         c.setCreateur(Createur);
         c.setValidateur(Validateur);
+        c.setEtat(EtatConge.En_attente);
         Createur.getCongePris().add(c);
         Validateur.getCongeTraite().add(c);
         Createur.setSolde(Createur.getSolde()-GetNombreJours(c.getDateDebut(),c.getDateFin()));
