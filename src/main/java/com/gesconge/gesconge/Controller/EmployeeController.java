@@ -12,11 +12,7 @@ import java.util.List;
 public class EmployeeController {
     @Autowired
     private IEmployeeService employeeService;
-    @PostMapping("/AjouterEmployee")
-    public Employee addEmployee(@RequestBody Employee emp) {
 
-        return employeeService.addEmployee(emp);
-    }
     @PutMapping("/ModifierEmployee")
     public Employee updateEmployee(Employee emp) {
         return employeeService.updateEmployee(emp);
@@ -38,10 +34,19 @@ public class EmployeeController {
 
         return employeeService.getAllEmployee();
     }
-    @PostMapping("AffecterEquipe/idemp/idEquipe")
+    @PostMapping("AffecterEquipe/{idemp}/{idEquipe}")
     public void addEmployeeToEquipe(@PathVariable("IdEmp")long IdEmp,@PathVariable("codeEq") String codeEq) {
 
          employeeService.addEmployeeToEquipe(IdEmp,codeEq);
     }
+    @GetMapping("GetSolde/{IdEmp}")
+    public float GetSoldeCongeById(@PathVariable("IdEmp")long IdEmp) {
 
+       return employeeService.GetSoldeCongeById(IdEmp);
+    }
+    @PostMapping("/AjouterEmployee/{equipeId}/{roleId}")
+    public Employee addEmployee(@RequestBody Employee emp , @PathVariable long equipeId , @PathVariable long roleId, @RequestParam(name = "responsableId" ,required = false) Long responsableId) {
+
+        return employeeService.addEmployee(emp , equipeId , roleId,responsableId);
+    }
 }

@@ -18,7 +18,7 @@ private IEmployee empRepo;
 private IEquipe equipeRepo;
 @Autowired
 private IRole roleRepo;
-    @Override
+  /*  @Override
     public Employee addEmployee(Employee emp) {
         Equipe eq=new Equipe();
         long Ideq=equipeRepo.GetIdEquipe(emp.getEquipe().getCodeEquipe());
@@ -51,7 +51,7 @@ private IRole roleRepo;
 
         return empRepo.save(emp);
     }
-
+*/
     @Override
     public Employee updateEmployee(Employee emp) {
 
@@ -85,6 +85,16 @@ private IRole roleRepo;
     public long GetIdEmp(String username)
     {
         return empRepo.GetIdEmp(username);
+    }
+
+    @Override
+    public float GetSoldeCongeById(long idEmp) {
+        return empRepo.GetSoldeCongeById(idEmp);
+    }
+
+    @Override
+    public Employee addEmployee(Employee emp, long equipeId, long roleId, Long responsableId) {
+        return null;
     }
 
 

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,20 +25,26 @@ public class CongeService implements ICongeService{
     @Autowired
     public IEmployee empRepository;
 
-    public float GetNombreJours(Conge c)
+    public float GetNombreJours(Date Start, Date End)
     {
-        long totalDays = ChronoUnit.DAYS.between((Temporal) c.getDateDebut(), (Temporal) c.getDateFin());
+
+        long totalDays = ChronoUnit.DAYS.between(Start.toInstant(), End.toInstant());
         long weekends = 0;
 
-        for (LocalDate date = c.getDateDebut().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); date.isBefore(c.getDateFin().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()); date = date.plusDays(1)) {
+        LocalDate startDate = Start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endDate = End.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        for (LocalDate date = startDate; date.isBefore(endDate); date = date.plusDays(1)) {
             if (date.getDayOfWeek() == DayOfWeek.SATURDAY || date.getDayOfWeek() == DayOfWeek.SUNDAY) {
                 weekends++;
             }
         }
 
         return totalDays - weekends;
-
     }
+
+
+
     @Override
     public Conge addDemandeConge(Conge c, long IdEmp) {
         Employee Createur=new Employee();
@@ -48,7 +55,7 @@ public class CongeService implements ICongeService{
         c.setValidateur(Validateur);
         Createur.getCongePris().add(c);
         Validateur.getCongeTraite().add(c);
-        Createur.setSolde(GetNombreJours(c));
+        Createur.setSolde(Createur.getSolde()-GetNombreJours(c.getDateDebut(),c.getDateFin()));
         return congeRespository.save(c);
    }
 
@@ -69,4 +76,6 @@ public class CongeService implements ICongeService{
 
         return congeRespository.save(c);
     }
+
+
 }

@@ -13,5 +13,7 @@ public interface IEvenementService {
     Evenement updateEvent(Evenement e);
     void deleteEvent(Long id);
     Evenement addeventtoequipe(Evenement e, Long idequipe);
+    String GetEvenementByEquipe(long idEquipe);
+
 
 }
