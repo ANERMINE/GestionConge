@@ -58,4 +58,10 @@ public class EvenementService implements IEvenementService{
         // Enregistrer les modifications dans la base de données
         return Ievent.save(e);
     }
+
+    @Override
+    public String GetEvenementByEquipe(long idEquipe) {
+         return Ievent.GetEvenementByEquipe(idEquipe);
+
+    }
 }

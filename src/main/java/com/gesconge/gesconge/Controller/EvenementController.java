@@ -49,4 +49,10 @@ public class EvenementController {
         return eventservice.addeventtoequipe(evenement,idEquipe);
 
     }
+    @GetMapping("/GetEventByEquipe/{idEquipe}")
+    @ResponseBody
+    public String addeventtoequipe(@PathVariable Long idEquipe) {
+        return eventservice.GetEvenementByEquipe(idEquipe);
+
+    }
 }

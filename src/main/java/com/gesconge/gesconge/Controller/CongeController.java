@@ -5,14 +5,16 @@ import com.gesconge.gesconge.Services.ICongeService;
 import com.gesconge.gesconge.Entities.Conge;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/conge")
 @RequiredArgsConstructor
-public class CongeController {
+public class CongeController  {
 
     @Autowired
     public ICongeService iCongeService;
@@ -44,6 +46,11 @@ public class CongeController {
 
         return iCongeService.updateConge(c);
     }
-
+    @ResponseBody
+    @GetMapping("/GetNbJour/{Start}/{End}")
+    public float GetNombreJours(@PathVariable("Start")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date Start ,@PathVariable("End")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  Date End)
+    {
+        return iCongeService.GetNombreJours(Start,End);
+    }
 
 }

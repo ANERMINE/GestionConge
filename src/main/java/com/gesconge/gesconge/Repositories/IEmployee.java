@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface IEmployee extends JpaRepository<Employee,Long> {
     @Query(value="select id_emp from employee where username like ?1",nativeQuery=true)
     long GetIdEmp(@Param("username") String username);
+    @Query(value="select solde from employee where id_emp =?1",nativeQuery=true)
+    float GetSoldeCongeById(@Param("idEmp") long idEmp);
 }
