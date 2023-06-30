@@ -49,4 +49,8 @@ public class EmployeeController {
 
         return employeeService.addEmployee(emp , equipeId , roleId,responsableId);
     }
+    @GetMapping("GetEmployeByResp/{idEmp}")
+    public List<Employee> GetListeEmployeeByResp(@PathVariable("idEmp") long idEmp){
+        return employeeService.GetListeEmployeeByResp(idEmp);
+    }
 }

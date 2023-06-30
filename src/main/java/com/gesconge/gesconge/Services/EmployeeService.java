@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class EmployeeService implements IEmployeeService{
 @Autowired
@@ -94,8 +95,33 @@ private IRole roleRepo;
 
     @Override
     public Employee addEmployee(Employee emp, long equipeId, long roleId, Long responsableId) {
-        return null;
+      Equipe eq = equipeRepo.findById(equipeId).get();
+      emp.setEquipe(eq);
+      eq.getListEmployee().add(emp);
+
+      //Employee resp=new Employee();
+      // resp=empRepo.findById(GetIdEmp(emp.getResponsable().getUsername())).get();
+
+
+      //Affectaion Responsable
+      if (responsableId != null) {
+        Employee resp = empRepo.findById(responsableId).get();
+        resp.getEmployeesSupervises().add(emp);
+        emp.setResponsable(resp);
+
+      }
+
+      Role role = roleRepo.findById(roleId).get();
+      emp.setRole(role);
+
+      return empRepo.save(emp);
     }
+
+  @Override
+  public List<Employee> GetListeEmployeeByResp(long idEmp) {
+   Employee emp= empRepo.findById(idEmp).get();
+    return emp.getEmployeesSupervises();
+  }
 
 
 }

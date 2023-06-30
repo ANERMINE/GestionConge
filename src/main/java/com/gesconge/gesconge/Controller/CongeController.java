@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/conge")
@@ -21,8 +22,8 @@ public class CongeController  {
 
     @PostMapping("/add/{idemp}")
     @ResponseBody
-    public Conge addDemandeConge(@RequestBody Conge c,@PathVariable("idemp") long IdEmp) {
-        return iCongeService.addDemandeConge(c,IdEmp);
+    public Conge addDemandeConge(@RequestBody Conge c,@PathVariable("idemp") long idemp) {
+       return  iCongeService.addDemandeConge(c,idemp);
     }
 
 
@@ -51,6 +52,12 @@ public class CongeController  {
     public float GetNombreJours(@PathVariable("Start")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date Start ,@PathVariable("End")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  Date End)
     {
         return iCongeService.GetNombreJours(Start,End);
+    }
+    @ResponseBody
+    @GetMapping("/GetListConge/{idEmp}")
+    public Set<Conge> GetListConge(@PathVariable("idEmp")long idEmp)
+    {
+        return iCongeService.GetListConge(idEmp);
     }
 
 }

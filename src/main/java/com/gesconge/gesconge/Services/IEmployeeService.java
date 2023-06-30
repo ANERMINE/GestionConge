@@ -1,7 +1,6 @@
 package com.gesconge.gesconge.Services;
 
 import com.gesconge.gesconge.Entities.Employee;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -17,4 +16,5 @@ public interface IEmployeeService {
 
 
     Employee addEmployee(Employee emp, long equipeId, long roleId, Long responsableId);
+    public List<Employee> GetListeEmployeeByResp(long idEmp);
 }
