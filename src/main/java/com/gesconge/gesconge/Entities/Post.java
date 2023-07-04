@@ -25,5 +25,8 @@ public class Post implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "post")
     @JsonIgnore
     Set<Comment> listCommentaire;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    Employee employees;
 
 }

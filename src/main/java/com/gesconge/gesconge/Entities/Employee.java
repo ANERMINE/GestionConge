@@ -57,6 +57,8 @@ public class Employee implements Serializable {
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     Set<Comment> listCommentaires;
+    @OneToMany(mappedBy ="employees")
+    Set<Post>listposts;
 
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
