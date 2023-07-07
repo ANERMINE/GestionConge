@@ -4,7 +4,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -12,12 +11,15 @@ import java.util.Set;
 @Entity
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class Role {
+@Table(name = "roles")
+public class
+Role {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long Id_Role;
-    String Libelle;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "role")
-    Set<Employee> ListEmployee;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private RoleName name;
+
 
 }
