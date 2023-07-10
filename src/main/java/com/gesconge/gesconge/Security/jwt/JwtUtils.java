@@ -14,7 +14,7 @@ import java.security.Key;
 import java.util.Date;
 @Component
 public class JwtUtils {
-
+//STATUT GIT
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
     @Value("${bezkoder.app.jwtSecret}")

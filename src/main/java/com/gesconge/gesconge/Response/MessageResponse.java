@@ -1,7 +1,7 @@
 package com.gesconge.gesconge.Response;
 
 public class MessageResponse {
-
+//GIT
     private String message;
 
     public MessageResponse(String message) {

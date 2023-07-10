@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
+//GIT
 public interface IEmployee extends JpaRepository<Employee,Long> {
     Optional<Employee> findByUsername(String username);
     Boolean existsByUsername(String username);

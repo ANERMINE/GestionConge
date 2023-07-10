@@ -1,7 +1,7 @@
 package com.gesconge.gesconge.Request;
 
 import javax.validation.constraints.NotBlank;
-
+//GIT
 public class LoginRequest {
 
 @NotBlank

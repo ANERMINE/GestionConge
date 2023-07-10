@@ -1,5 +1,5 @@
 package com.gesconge.gesconge.Response;
-
+//GIT
 import java.util.List;
 public class JwtResponse {
     private String token;

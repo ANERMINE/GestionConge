@@ -102,14 +102,14 @@ public class AuthController {
             strRoles.forEach(role -> {
                 switch (role) {
 
-                    case "ROLE_ADMIN":
+                    case "ROLE_MANAGER":
                         System.out.println( "*********11111**********"+role);
                         Role adminRole = roleRepository.findByName(RoleName.ROLE_MANAGER)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
 
                         break;
-                    case "ROLE_MODERATOR":
+                    case "ROLE_RH":
                         System.out.println( "*********22222**********"+role);
                         Role modRole = roleRepository.findByName(RoleName.ROLE_RH)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -117,7 +117,7 @@ public class AuthController {
 
                         break;
 
-                    case "ROLE_USER":
+                    case "ROLE_SALARIER":
                         System.out.println( "*********333333**********"+role);
                         Role userRole = roleRepository.findByName(RoleName.ROLE_SALARIER)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
