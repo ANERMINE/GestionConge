@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
 @RequestMapping("/Comments")
@@ -20,9 +21,9 @@ public class CommentController {
     List<Comment>retrieveallComment(){
         return commentService.retrieveallComment();
     }
-    @GetMapping("/getcommentByID/{Id-comment}")
+    @GetMapping("/getcommentByID/{Id_comment}")
     @ResponseBody
-    Comment retrievecomment(@PathVariable("Id-comment") Long Id_comment){
+    Comment retrievecomment(@PathVariable("Id_comment") Long Id_comment){
         return commentService.retrievecomment(Id_comment);
     }
 

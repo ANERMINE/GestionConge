@@ -25,8 +25,15 @@ public class Post implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "post")
     @JsonIgnore
     Set<Comment> listCommentaire;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    Employee employees;
+    private Employee employees;
 
+    public void setEmployees(Employee employees) {
+        this.employees = employees;
+    }
+
+    public Employee getEmployees() {
+        return employees;
+    }
 }

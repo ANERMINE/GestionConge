@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -57,8 +58,8 @@ public class Employee implements Serializable {
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     Set<Comment> listCommentaires;
-    @OneToMany(mappedBy ="employees")
-    Set<Post>listposts;
+    @OneToMany(mappedBy ="employees", cascade = CascadeType.ALL)
+    private List<Post> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
@@ -74,10 +75,7 @@ public class Employee implements Serializable {
     private List<Pointage> pointages;
 
 
-
-
-
-
-
-
+    public void setId(Long Id_Emp ){
+        this.Id_Emp = Id_Emp;
+    }
 }

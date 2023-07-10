@@ -12,5 +12,5 @@ public interface IPostService {
     Post addPost(Post p);
     Post updatePost(Post P);
     void deletePost(Long id);
-
+    public Post createPost( Long employeeId,Post post);
 }
