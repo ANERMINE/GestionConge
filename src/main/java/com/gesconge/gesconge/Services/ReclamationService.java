@@ -18,7 +18,8 @@ public class ReclamationService implements IReclamationService{
     @Autowired
     IReclamation r;
 
-    public Reclamation addReclamation(Reclamation reclamation,MultipartFile file) throws IOException {
+    public Reclamation addReclamation(Reclamation reclamation) {
+        Reclamation recl=null;
         if (reclamation.getType() == TypeReclamation.DemandeSoldeConge) {
             if (hasExistingLeaveRequest(reclamation.getEmployee())) {
                 throw new IllegalArgumentException("Vous avez deja créé une demande de solde de congé vous ne pouvez pas créér une autre");
@@ -32,12 +33,17 @@ public class ReclamationService implements IReclamationService{
         } else {
             reclamation.setnbJours(0);
         }
-        if (file != null && !file.isEmpty()) {
-            String filePath = storeFile(file);
-            reclamation.setPieceJointe(filePath);
-        }
-        return r.save(reclamation);
+//        if (file != null && !file.isEmpty()) {
+//            String filePath = storeFile(file);
+//            reclamation.setPieceJointe(filePath);
+//        }
+        recl= r.save(reclamation);
+        return recl;
     }
+
+
+
+
     public void deleteReclamation(Long id){
         r.deleteById(id);
     }
@@ -47,24 +53,17 @@ public class ReclamationService implements IReclamationService{
     public Reclamation updateReclamation(Reclamation updatedRec){
         Reclamation reclamation = r.findById(updatedRec.getIdReclamation()).get();
 
-            reclamation.setType(updatedRec.getType());
-            reclamation.setDateCreation(updatedRec.getDateCreation());
-            reclamation.setEtat(updatedRec.getEtat());
-          return r.save(reclamation);
+        reclamation.setType(updatedRec.getType());
+        reclamation.setDateCreation(updatedRec.getDateCreation());
+        reclamation.setEtat(updatedRec.getEtat());
+        return r.save(reclamation);
 
     }
     public Reclamation retrieveReclamation(Long id){
         return r.getReferenceById(id);
     }
 
-    private String storageDirectory ="C:\\Users\\zbasm\\Desktop\\StockageFichiers";
-    public String storeFile(MultipartFile file) throws IOException {
-        String fileName = file.getOriginalFilename();
-        String filePath = storageDirectory + File.separator + fileName;
-        File targetFile = new File(filePath);
-        file.transferTo(targetFile);
-        return filePath;
-    }
+
     public List<Reclamation> findByEmployeeAndType(Employee employee, TypeReclamation type) {
         List<Reclamation> reclamations = r.findAll();
         List<Reclamation> filteredReclamations = new ArrayList<>();

@@ -1,12 +1,13 @@
 package com.gesconge.gesconge.Controller;
 
+import com.gesconge.gesconge.Entities.Employee;
+import com.gesconge.gesconge.Entities.TypeReclamation;
 import com.gesconge.gesconge.Services.IReclamationService;
 import com.gesconge.gesconge.Entities.Reclamation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -16,33 +17,36 @@ public class ReclamationController {
     private IReclamationService ReclamationService;
 
     @GetMapping("/AllRec")
-    @ResponseBody
     public List<Reclamation> retrieveAllReclamations() {
         return ReclamationService.retrieveAllReclamations();
     }
 
     @GetMapping("/ReclamationID/{id}")
-    @ResponseBody
     public Reclamation retrieveReclamation(@PathVariable("id") Long id) {
         return ReclamationService.retrieveReclamation(id);
     }
 
     @PostMapping("/addRec")
-    @ResponseBody
-    public Reclamation addReclamation(@RequestBody Reclamation r, @RequestParam("file") MultipartFile file) throws IOException {
-        return ReclamationService.addReclamation(r,file);
+//    @RequestMapping(value="/addRec",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+
+    public ResponseEntity<Reclamation>  addReclamation(@RequestBody Reclamation r)  {
+        return ResponseEntity.ok().body (ReclamationService.addReclamation(r));
     }
 
     @PutMapping("/update/{id}")
-    @ResponseBody
     public Reclamation updateReclamation(Reclamation updatedRec) {
         return ReclamationService.updateReclamation(updatedRec);
     }
 
     @DeleteMapping("/delete/{id}")
-    @ResponseBody
     public void deleteReclamation(@PathVariable("id") Long id) {
         ReclamationService.deleteReclamation(id);
     }
 
+    @GetMapping("/findByEmployeeAndType/{employeeId}/{type}")
+    @ResponseBody
+    public List<Reclamation> findByEmployeeAndType(@PathVariable("employee") Employee employee, @PathVariable("type") TypeReclamation type) {
+
+        return ReclamationService.findByEmployeeAndType(employee, type);
+    }
 }

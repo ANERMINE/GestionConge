@@ -6,15 +6,16 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
-@FieldDefaults(level= AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 public class Reclamation implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idReclamation;
     @Enumerated(EnumType.STRING)
     TypeReclamation type;
@@ -23,13 +24,15 @@ public class Reclamation implements Serializable {
     @Enumerated(EnumType.STRING)
     EtatReclamation etat;
     String pieceJointe;
-    private float nbJours;
+    private Integer nbJours;
+    @Column(name = "collaborateur")
+    private String collaborateur;
 
-    public float getnbJours() {
+    public Integer getnbJours() {
         return nbJours;
     }
 
-    public void setnbJours(float nbJours) {
+    public void setnbJours(Integer nbJours) {
         this.nbJours = nbJours;
     }
 
